@@ -2,7 +2,32 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div style="text-align:right">
+    <a asp-controller="User" asp-action="Index">Sign In!</a>
+</div>
+<div>
+    <div class="row">
+        <div class="col-sm-6">
+            <a asp-controller="Plan" asp-action="Index">
+                <img class="img-rounded main-selection" src="images/Calendar.png" alt="select-Plan-Your-Week-calendar-icon" /> 
+            </a> 
+        </div>
+        <div class="col-sm-6">
+            <a asp-controller="See" asp-action="Index">
+                <img class="img-rounded main-selection" src="images/GroceryList.png" alt="grocery-basket-select-See-Your_grocery-list" />
+            </a>
+        </div>       
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <a asp-controller="Manage" asp-action="Index">
+                <img class="img-rounded main-selection" src="images/Meal.png" alt="recipe-icon-select-add-a-meal" />
+            </a>
+        </div>
+        <div class="col-sm-6">
+            <a asp-controller="Explore" asp-action="Index">
+                <img class="img-rounded main-selection" src="images/Explore.png" alt="search-icon-select-explore-meals" />
+            </a>
+        </div>
+    </div>
 </div>
