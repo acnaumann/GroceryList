@@ -1,0 +1,61 @@
+﻿@page
+@{
+}
+
+
+<h1>Add A Meal</h1>
+
+<form asp-controller="Manage" asp-action="Index">
+    <div>
+        <label>
+            Name your Meal:
+        </label>
+        
+        <input type="text" name="" />
+    </div><br />
+    <div>
+        <label>
+            Enter your ingredients:
+        </label>
+        
+        <input type="text" name="" />
+        <span>
+            <select>
+                <option value="Category 1">
+                    Category 1
+                </option>
+                <option value="Category 2">
+                    Category 2
+                </option>
+                <option value="Category 3">
+                    Category 3
+                </option>
+                <option value="Category 4">
+                    Category 4
+                </option>
+            </select>
+
+            @{
+                //TODO -- figure out the javascript that will allow the ingredient to pop up on the screen after submission
+              }
+
+            <button type="button" name="AddIngredient">Add Ingredient</button>
+        </span>
+    </div>
+    <div>
+        <label>
+            Notes
+        </label>
+        <textarea name="comment" form="text-area">Enter text here...</textarea>
+    </div>
+    <input type="submit" value="Add Meal" />
+
+    @{
+        //TODO -- Add an x glyphicon or cancel link that will take the user back to their meals page
+
+     }
+       
+    
+</form>
+
+
