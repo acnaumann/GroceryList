@@ -1,0 +1,17 @@
+﻿@page
+@{
+    //TODO -- figure out the routing to add a meal to the user's meals 
+}
+
+
+<h3>***Need to add the ability to view a single meal
+    with the ability to easily navigate back to the user's meals page***</h3>
+
+<div style="text-align:center">
+    <form asp-controller="Explore" asp-action="AddMeal" method="post">
+        <a asp-controller="Manage" asp-action="AddAMeal"><input type="submit" value="Add To My Meals!" /> </a>
+    </form>
+</div>
+
+
+<a asp-controller="Explore" asp-action="Index">back</a>

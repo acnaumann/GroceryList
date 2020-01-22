@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GroceryList.Controllers
 {
-    public class PlanController : Controller
+    public class UserController : Controller
     {
         // GET: /<controller>/
         public IActionResult Index()
@@ -16,14 +16,21 @@ namespace GroceryList.Controllers
             return View();
         }
 
-
-        
-
         [HttpPost]
         public IActionResult Index(string name)
         {
-            // TODO -- How to clear the week's meals and stay on the index page
+            return Redirect("/Home");
+        }
+
+        public IActionResult AddUser()
+        {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddUser(string username)
+        {
+            return Redirect("/Home");
         }
     }
 }

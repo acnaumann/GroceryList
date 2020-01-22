@@ -1,0 +1,22 @@
+﻿@page
+@{
+}
+
+
+<h1>Sign In</h1>
+
+<form asp-controller="User" asp-action="Index" method="post">
+    <div>
+        <label>Email</label>
+        <input type="text" name="Email" />
+    </div>
+    <div>
+        <label>Password</label>
+        <input type="password" name="password" />
+    </div>
+    <input type="submit" value="Sign In" />
+</form>
+
+<div>
+    <p>Don't have an account? <a asp-controller="User" asp-action="AddUser">Sign up here!</a></p>
+</div>

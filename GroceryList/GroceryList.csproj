@@ -13,5 +13,7 @@
     <Folder Include="Views\Manage\" />
     <Folder Include="Views\Plan\" />
     <Folder Include="Views\See\" />
+    <Folder Include="Views\User\" />
+    <Folder Include="Views\Explore\" />
   </ItemGroup>
 </Project>

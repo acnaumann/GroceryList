@@ -1,0 +1,44 @@
+﻿@page
+@{
+}
+
+
+<h1>
+    Create An Account!
+</h1>
+
+<form asp-controller="User" asp-action="AddUser" method="post">
+    <p class="error" style="color:red;">
+        @ViewBag.error
+    </p>
+    <div class="">
+        <label @*asp-for="Username"*@>Username</label><br />
+        <input type="text" class="" name="Username" />        @*name should change to asp-for*@
+        @*<span asp-validation-for="Username"></span>*@
+    </div><br />
+
+    <div class="">
+        <label @*asp-for="Email"*@>Email</label><br />
+        <input type="text" class="" name="Email" />
+        @*<span asp-validation-for="Email"></span>*@
+    </div><br />
+
+    <div class="">
+        <label @*asp-for="VerifyEmail"*@>Verify your Email address</label><br />
+        <input type="text" class="" name="VerifyEmail" />
+        @*<span asp-validation-for="VerifyEmail"></span>*@
+    </div><br />
+
+    <div class="">
+        <label @*asp-for="Password"*@>Password</label><br />
+        <input type="password" class="" name="Password" />
+        @*<span asp-validation-for="Password"></span>*@
+    </div><br />
+
+    <div class="">
+        <label @*asp-for="Verify"*@>Verify</label><br />
+        <input type="password" class="" name="Verify" />
+        @*<span asp-validation-for="Verify"></span>*@
+    </div><br />
+    <input type="submit" value="Add User!" />
+</form>
