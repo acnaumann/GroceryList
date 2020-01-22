@@ -1,0 +1,103 @@
+﻿@page
+@{
+    //TODO -- if your week is set, display the meals in the dropdown
+    //do I want just the meals displayed per day or do I want the meals displayed in the dropdown?
+}
+
+
+<div style="text-align:center">
+    <h1>Plan Your Week</h1>
+    <form>
+        <label>
+            <bold>
+                Sunday
+            </bold>
+        </label><br />
+        <select>
+            <option value="">Select a Meal</option>
+            <option value="Meal 1">Meal 1</option>
+            <option value="Meal 2">Meal 2</option>
+            <option value="Meal 3">Meal 3</option>
+            <option value="Meal 4">Meal 4</option>
+            <option value="Meal 5">Meal 5</option>
+        </select><br />
+        
+        <label>
+            Monday
+        </label><br />
+        <select>
+            <option value="">Select A Meal</option>
+            <option value="Meal 1">Meal 1</option>
+            <option value="Meal 2">Meal 2</option>
+            <option value="Meal 3">Meal 3</option>
+            <option value="Meal 4">Meal 4</option>
+            <option value="Meal 5">Meal 5</option>
+        </select><br />
+        
+        <label>
+            Tuesday
+        </label><br />
+        <select>
+            <option value="">Select A Meal</option>
+            <option value="Meal 1">Meal 1</option>
+            <option value="Meal 2">Meal 2</option>
+            <option value="Meal 3">Meal 3</option>
+            <option value="Meal 4">Meal 4</option>
+            <option value="Meal 5">Meal 5</option>
+        </select><br />
+        
+        <label>
+            Wendesday
+        </label><br />
+        <select>
+            <option value="">Select A Meal</option>
+            <option value="Meal 1">Meal 1</option>
+            <option value="Meal 2">Meal 2</option>
+            <option value="Meal 3">Meal 3</option>
+            <option value="Meal 4">Meal 4</option>
+            <option value="Meal 5">Meal 5</option>
+        </select><br />
+        
+        <label>
+            Thursday
+        </label><br />
+        <select>
+            <option value="">Select A Meal</option>
+            <option value="Meal 1">Meal 1</option>
+            <option value="Meal 2">Meal 2</option>
+            <option value="Meal 3">Meal 3</option>
+            <option value="Meal 4">Meal 4</option>
+            <option value="Meal 5">Meal 5</option>
+        </select><br />
+        
+        <label>
+            Friday
+        </label><br />
+        <select>
+            <option value="">Select A Meal</option>
+            <option value="Meal 1">Meal 1</option>
+            <option value="Meal 2">Meal 2</option>
+            <option value="Meal 3">Meal 3</option>
+            <option value="Meal 4">Meal 4</option>
+            <option value="Meal 5">Meal 5</option>
+        </select><br />
+        
+        <label>
+            Saturday
+        </label><br />
+        <select>
+            <option value="">Select A Meal</option>
+            <option value="Meal 1">Meal 1</option>
+            <option value="Meal 2">Meal 2</option>
+            <option value="Meal 3">Meal 3</option>
+            <option value="Meal 4">Meal 4</option>
+            <option value="Meal 5">Meal 5</option>
+        </select><br />
+        
+        <input type="submit" value="Set My Week!" />
+    </form>
+</div>
+
+<div style="text-align:left;">
+    <a asp-controller="Plan" asp-action="Clear" >Start New Week!</a>
+</div>
