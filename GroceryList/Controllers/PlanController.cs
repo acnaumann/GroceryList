@@ -16,9 +16,6 @@ namespace GroceryList.Controllers
             return View();
         }
 
-
-        
-
         [HttpPost]
         public IActionResult Index(string name)
         {

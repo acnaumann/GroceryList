@@ -15,5 +15,13 @@
     <Folder Include="Views\See\" />
     <Folder Include="Views\User\" />
     <Folder Include="Views\Explore\" />
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Data\Meal.cs" />
+    <Compile Remove="Views\Manage\AddIngredient.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="Views\Manage\AddIngredient.cshtml" />
   </ItemGroup>
 </Project>

@@ -11,16 +11,67 @@
 
 }
 
-<a asp-controller="Manage" asp-action="AddAMeal">Add a Meal</a>
 
-<div class="container-fluid text-center">
+@if (ViewBag.meals.Count != 0)
+{
+    <a asp-controller="Manage" asp-action="AddAMeal">Add a Meal</a>
+
+}
+
+    <div class="container-fluid text-center">
+        <div>
+            <h1>My Meals</h1>
+            <br />     
+        </div>
+        <div class="row">
+
+@if (ViewBag.meals.Count == 0)
+{
     <div>
-        <h1>[User's Meals]</h1>
-        <br />     
+        <p>You have no Meals Yet! </p>
+    </div> 
+    <br />
+    <div>
+        <p>You can add a meal <a asp-controller="Manage" asp-action="AddAMeal">here!</a></p>
     </div>
+    
 
-    <div class="row">
-        <div class="col-sm-4">
+}
+
+    @foreach (Meal meal in ViewBag.meals)
+    {
+            <div class="col-sm-4">
+            <div class="panel panel-default text-center">
+                <div class="panel-heading">
+                    <h3>@meal.Name</h3>
+                </div>
+                <div class="panel-body">
+                    <div>
+                        @meal.Ingredient
+                    </div>
+                    <div>
+                        @meal.Note
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <a asp-controller="Manage" asp-action="ViewAMeal"><input type="submit" value="see full menu" /> </a>
+                    @*<input type="submit" value="RemoveMeal" />*@
+                </div>
+                
+            </div>
+        </div>
+
+    }
+
+
+
+
+
+
+    
+        
+
+      @*  <div class="col-sm-4">
             <div class="panel panel-default text-center">
                 <div class="panel-heading">
                     <h3>Meal Name</h3>
@@ -32,7 +83,7 @@
                 </div>
                 <div class="panel-footer">
                     <a asp-controller="Manage" asp-action="ViewAMeal"><input type="submit" value="see full menu" /> </a>
-                    @*<input type="submit" value="RemoveMeal" />*@
+                    @*<input type="submit" value="RemoveMeal" />
                 </div>
                 
             </div>
@@ -50,25 +101,7 @@
                 </div>
                 <div class="panel-footer">
                     <a asp-controller="Manage" asp-action="ViewAMeal"><input type="submit" value="see full menu" /> </a>
-                    @*<input type="submit" value="RemoveMeal" />*@
-                </div>
-                
-            </div>
-        </div>
-
-        <div class="col-sm-4">
-            <div class="panel panel-default text-center">
-                <div class="panel-heading">
-                    <h3>Meal Name</h3>
-                </div>
-                <div class="panel-body">
-                    <div>
-                        <p>[Meal Notes]</p>
-                    </div>
-                </div>
-                <div class="panel-footer">
-                    <a asp-controller="Manage" asp-action="ViewAMeal"><input type="submit" value="see full menu" /> </a>
-                    @*<input type="submit" value="RemoveMeal" />*@
+                    @*<input type="submit" value="RemoveMeal" />
                 </div>
                 
             </div>
@@ -90,7 +123,7 @@
                 </div>
                 <div class="panel-footer">
                     <a asp-controller="Manage" asp-action="ViewAMeal"><input type="submit" value="see full menu" /> </a>
-                    @*<input type="submit" value="RemoveMeal" />*@
+                    @*<input type="submit" value="RemoveMeal" />
                 </div>
                 
             </div>
@@ -109,7 +142,7 @@
                 <div class="panel-footer">
                     
                     <a asp-controller="Manage" asp-action="ViewAMeal"><input type="submit" value="see full menu" /> </a> 
-                    @*<input type="submit" value="RemoveMeal" />*@
+                    @*<input type="submit" value="RemoveMeal" />
                 </div>
                 
             </div>
@@ -127,11 +160,11 @@
                 </div>
                 <div class="panel-footer">
                     <a asp-controller="Manage" asp-action="ViewAMeal"><input type="submit" value="see full menu" /> </a> 
-                    @*<input type="submit" value="RemoveMeal" />*@
+                    @*<input type="submit" value="RemoveMeal" />
                 </div>
                 
             </div>
-        </div>
+        </div>*@
     </div>
 
 </div>
