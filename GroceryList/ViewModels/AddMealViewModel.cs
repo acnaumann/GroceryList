@@ -11,11 +11,7 @@ namespace GroceryList.ViewModels
         [Required]
         public string Name { get; set; }
 
-
-        [Required]
-        public string Ingredient { get; set; }
-
-
+        public List<string> Ingredients { get; set; }
 
         [Required]
         public string Note { get; set; }
