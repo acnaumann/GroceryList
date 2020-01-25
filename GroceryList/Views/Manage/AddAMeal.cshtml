@@ -1,5 +1,6 @@
 ﻿@model GroceryList.ViewModels.AddMealViewModel
 @{
+    ViewData["Title"] = "Title";
 }
 
 
@@ -19,7 +20,11 @@
         </label>
         
         <input type="text" name="Ingredients" />
-        <input type="text" name="Ingredients" />
+        <br />
+        <div id="ingredients"></div>
+        <button id="btnAddIngredient" type="button" >Add Ingredient</button>
+
+
     </div>
     <br />
     <div>
@@ -42,6 +47,20 @@
 
 
 
+        
+        
+		
+<script type="text/javascript">
+		
+	$(document).ready(function() {
+		var $ingredients = $('#ingredients');
+		$('#btnAddIngredient').click(function(e) {
+			e.preventDefault();
+			$('<input type="text" name="Ingredients" /><br/>').appendTo($ingredients);
+		});
+	});
+	
+</script>
 
 
 

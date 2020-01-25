@@ -46,6 +46,7 @@ namespace GroceryList.Controllers
                     Note = addMealViewModel.Note
                 };
 
+                meal.Ingredients = new List<Ingredient>();
                 foreach (var ingr in addMealViewModel.Ingredients)
                 {
                     Ingredient ingredient = new Ingredient()
@@ -53,7 +54,7 @@ namespace GroceryList.Controllers
                         Name = ingr
                     };
 
-                    meal.Ingredients = new List<Ingredient>();
+                    
                     meal.Ingredients.Add(ingredient);
                 }
 
