@@ -8,40 +8,42 @@
 
 <form asp-controller="Manage" asp-action="AddAMeal" method="post">
     <div>
-        <label>
-            Name your Meal:
-        </label>
-        
-        <input type="text" name="Name" />
-    </div><br />
-    <div>
-        <label>
-            Enter your ingredients:
-        </label>
-        
-        <input type="text" name="Ingredients" />
-        <br />
-        <div id="ingredients"></div>
-        <button id="btnAddIngredient" type="button" >Add Ingredient</button>
-
-
+        <div>
+            <label>
+                Name your Meal:
+            </label>
+        </div>
+        <div>
+            <input type="text" name="Name" />
+        </div>
     </div>
     <br />
     <div>
-        <label>
-            Notes
-        </label>
-        <input type="text" name="Note"/>
+        <div>
+            <label>
+                Enter your ingredients:
+            </label>
+        </div>
+        <div>
+            <input type="text" name="Ingredients" />
+        </div>
+        <div id="ingredients"></div>
+        <button id="btnAddIngredient" type="button" >Add Ingredient</button>
+    </div>
+    <br />
+    <div>
+        <div>
+            <label>
+                Notes
+            </label>
+        </div>
+        <div>
+            <input type="text" name="Note"/>
+        </div>       
     </div>
     <br />
     <input type="submit" value="Add Meal" />
-
-    @{
-        //TODO -- Add an x glyphicon or cancel link that will take the user back to their meals page
-
-     }
-       
-    
+    <a asp-controller="Manage" asp-action="Index">back</a>  
 </form>
 
 

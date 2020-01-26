@@ -51,7 +51,35 @@ namespace GroceryList.Migrations
                     b.ToTable("Meals");
                 });
 
+            modelBuilder.Entity("GroceryList.Models.PlannedMeal", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Day")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("MealID")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("MealID");
+
+                    b.ToTable("PlannedMeals");
+                });
+
             modelBuilder.Entity("GroceryList.Models.Ingredient", b =>
+                {
+                    b.HasOne("GroceryList.Models.Meal", "Meal")
+                        .WithMany("Ingredients")
+                        .HasForeignKey("MealID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("GroceryList.Models.PlannedMeal", b =>
                 {
                     b.HasOne("GroceryList.Models.Meal", "Meal")
                         .WithMany()

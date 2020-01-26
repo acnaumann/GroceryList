@@ -1,4 +1,4 @@
-﻿@page
+﻿@model GroceryList.ViewModels.PlanWeekViewModel
 @{
     //TODO -- if your week is set, display the meals in the dropdown
     //do I want just the meals displayed per day or do I want the meals displayed in the dropdown?
@@ -7,95 +7,65 @@
 
 <div style="text-align:center">
     <h1>Plan Your Week</h1>
-    <form>
-        <label>Enter day of week: </label>
-        <input type="text" name="DayOfWeek"/>
+    <form asp-controller="Plan" asp-action="Index" method="post">
+        <div style="margin-top: 12px;">
+            <label><strong>Sunday</strong></label>
+            <br />
+            <select asp-for="Sunday" asp-items="Model.Meals" name="Sunday"></select>
+            <br />
+        </div>
         <br />
-        <select>
-            <option value="">Select a Meal</option>
-            <option value="Meal 1">Meal 1</option>
-            <option value="Meal 2">Meal 2</option>
-            <option value="Meal 3">Meal 3</option>
-            <option value="Meal 4">Meal 4</option>
-            <option value="Meal 5">Meal 5</option>
-        </select><br />
-        
-        <label>
-            Monday
-        </label><br />
-        <select>
-            <option value="">Select A Meal</option>
-            <option value="Meal 1">Meal 1</option>
-            <option value="Meal 2">Meal 2</option>
-            <option value="Meal 3">Meal 3</option>
-            <option value="Meal 4">Meal 4</option>
-            <option value="Meal 5">Meal 5</option>
-        </select><br />
-        
-        <label>
-            Tuesday
-        </label><br />
-        <select>
-            <option value="">Select A Meal</option>
-            <option value="Meal 1">Meal 1</option>
-            <option value="Meal 2">Meal 2</option>
-            <option value="Meal 3">Meal 3</option>
-            <option value="Meal 4">Meal 4</option>
-            <option value="Meal 5">Meal 5</option>
-        </select><br />
-        
-        <label>
-            Wendesday
-        </label><br />
-        <select>
-            <option value="">Select A Meal</option>
-            <option value="Meal 1">Meal 1</option>
-            <option value="Meal 2">Meal 2</option>
-            <option value="Meal 3">Meal 3</option>
-            <option value="Meal 4">Meal 4</option>
-            <option value="Meal 5">Meal 5</option>
-        </select><br />
-        
-        <label>
-            Thursday
-        </label><br />
-        <select>
-            <option value="">Select A Meal</option>
-            <option value="Meal 1">Meal 1</option>
-            <option value="Meal 2">Meal 2</option>
-            <option value="Meal 3">Meal 3</option>
-            <option value="Meal 4">Meal 4</option>
-            <option value="Meal 5">Meal 5</option>
-        </select><br />
-        
-        <label>
-            Friday
-        </label><br />
-        <select>
-            <option value="">Select A Meal</option>
-            <option value="Meal 1">Meal 1</option>
-            <option value="Meal 2">Meal 2</option>
-            <option value="Meal 3">Meal 3</option>
-            <option value="Meal 4">Meal 4</option>
-            <option value="Meal 5">Meal 5</option>
-        </select><br />
-        
-        <label>
-            Saturday
-        </label><br />
-        <select>
-            <option value="">Select A Meal</option>
-            <option value="Meal 1">Meal 1</option>
-            <option value="Meal 2">Meal 2</option>
-            <option value="Meal 3">Meal 3</option>
-            <option value="Meal 4">Meal 4</option>
-            <option value="Meal 5">Meal 5</option>
-        </select><br />
-        
-        <input type="submit" value="Set My Week!" />
+        <div style="margin-top: 12px;">
+            <label><strong>Monday</strong></label>
+            <br />
+            <select asp-for="Monday" asp-items="Model.Meals" name="Monday"></select>
+            <br />
+        </div>
+        <br />
+        <div style="margin-top: 12px;">
+            <label><strong>Tuesday</strong></label>
+            <br />
+            <select asp-for="Tuesday" asp-items="Model.Meals" name="Tuesday"></select>
+            <br />
+        </div>
+        <br />
+        <div style="margin-top: 12px;">
+            <label><strong>Wednesday</strong></label>
+            <br />
+            <select asp-for="Wednesday" asp-items="Model.Meals" name="Wednesday"></select>
+            <br />
+        </div>
+        <br />
+        <div style="margin-top: 12px;">
+            <label><strong>Thursday</strong></label>
+            <br />
+            <select asp-for="Thursday" asp-items="Model.Meals" name="Thursday"></select>
+            <br />
+        </div>
+        <br />
+        <div style="margin-top: 12px;">
+            <label><strong>Friday</strong></label>
+            <br />
+            <select asp-for="Friday" asp-items="Model.Meals" name="Friday"></select>
+            <br />
+        </div>
+        <br />
+        <div style="margin-top: 12px;">
+            <label><strong>Saturday</strong></label>
+            <br />
+            <select asp-for="Saturday" asp-items="Model.Meals" name="Saturday"></select>
+            <br />
+            <br />
+        </div>
+        <br />
+        <br />
+        <div>
+            <input type="submit" value="Set My Week!" />
+              
+        </div>    
     </form>
 </div>
 
 <div style="text-align:left;">
-    <a asp-controller="Plan" asp-action="Index" >Start New Week!</a>
+    <a asp-controller="Plan" asp-action="Clear" >Start New Week!</a>
 </div>

@@ -17,6 +17,8 @@ namespace GroceryList.Models
 
         public List<Ingredient> Ingredients { get; set; }
 
+
+        IList<PlannedMeal> PlannedMeals { get; set; }
     }
 }
 

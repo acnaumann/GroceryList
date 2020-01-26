@@ -64,13 +64,26 @@ namespace GroceryList.Controllers
                 return Redirect("/Manage/Index");
             }
             //TODO -- List<string> result = names.Split(',').ToList();
-            //TODO -- add meal to db
 
             return View(addMealViewModel);
         }
 
+        //public IActionResult ViewAMeal(int id)
+        //{
+        //    Meal meal = context.Meals.Include(m => m.Ingredients).Single(mi => mi.ID == id);
+
+        //    //ViewMealViewModel viewMealViewModel = new ViewMealViewModel
+        //    //{
+        //    //    Meal = meal,
+        //    //    Ingredients = ingredients
+        //    //};
+
+        //    return View(meal);
+        //}
+
+
         // TODO -- later -- add an edit option for each meal
-        
+
     }
 }
 
@@ -89,21 +102,5 @@ namespace GroceryList.Controllers
 
 
 
-//public IActionResult AddIngredient()
-//{
-//    return View();
-//}
 
-//[HttpPost]
-//public IActionResult AddIngredient(string name)
-//{
-//    Ingredient ingredient = new Ingredient{ Name = name
-//    };
-//    return Redirect("/Manage/AddAMeal?=" + ingredient);
-//}
 
-//public IActionResult ViewAMeal(/*int id*/)
-//{
-
-//    return View();
-//}

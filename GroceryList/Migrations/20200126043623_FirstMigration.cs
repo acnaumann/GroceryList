@@ -40,9 +40,34 @@ namespace GroceryList.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "PlannedMeals",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Day = table.Column<string>(nullable: true),
+                    MealID = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PlannedMeals", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_PlannedMeals_Meals_MealID",
+                        column: x => x.MealID,
+                        principalTable: "Meals",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Ingredients_MealID",
                 table: "Ingredients",
+                column: "MealID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PlannedMeals_MealID",
+                table: "PlannedMeals",
                 column: "MealID");
         }
 
@@ -50,6 +75,9 @@ namespace GroceryList.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Ingredients");
+
+            migrationBuilder.DropTable(
+                name: "PlannedMeals");
 
             migrationBuilder.DropTable(
                 name: "Meals");
