@@ -28,6 +28,7 @@
             <input type="text" name="Ingredients" />
         </div>
         <div id="ingredients"></div>
+        <br />
         <button id="btnAddIngredient" type="button" >Add Ingredient</button>
     </div>
     <br />
@@ -38,11 +39,11 @@
             </label>
         </div>
         <div>
-            <input type="text" name="Note"/>
+            <textarea rows="6" cols="50" name="Note"></textarea>
         </div>       
     </div>
     <br />
-    <input type="submit" value="Add Meal" />
+    <input style="margin-right: 7px;" type="submit" value="Add Meal" />
     <a asp-controller="Manage" asp-action="Index">back</a>  
 </form>
 

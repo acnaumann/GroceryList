@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using GroceryList.Data;
 using GroceryList.Models;
 using GroceryList.ViewModels;
@@ -30,7 +28,7 @@ namespace GroceryList.Controllers
 
             if (Sunday != null)
             {
-                planWeekViewModel.Sunday = Sunday.MealID.ToString();
+                planWeekViewModel.SundayMealID = Sunday.MealID;
             }
 
 
@@ -38,7 +36,7 @@ namespace GroceryList.Controllers
 
             if (Monday != null)
             {
-                planWeekViewModel.Monday = Monday.MealID.ToString();
+                planWeekViewModel.MondayMealID = Monday.MealID;
             }
 
 
@@ -46,7 +44,7 @@ namespace GroceryList.Controllers
 
             if (Tuesday != null)
             {
-                planWeekViewModel.Tuesday = Tuesday.MealID.ToString();
+                planWeekViewModel.TuesdayMealID = Tuesday.MealID;
             }
 
 
@@ -54,7 +52,7 @@ namespace GroceryList.Controllers
 
             if (Wednesday != null)
             {
-                planWeekViewModel.Wednesday = Wednesday.MealID.ToString();
+                planWeekViewModel.WednesdayMealID = Wednesday.MealID;
             }
 
 
@@ -62,15 +60,15 @@ namespace GroceryList.Controllers
 
             if (Thursday != null)
             {
-                planWeekViewModel.Thursday = Thursday.MealID.ToString();
+                planWeekViewModel.ThursdayMealID = Thursday.MealID;
             }
 
 
-            PlannedMeal Friday = context.PlannedMeals.FirstOrDefault(x => x.Day == "friday");
+            PlannedMeal Friday = context.PlannedMeals.FirstOrDefault(x => x.Day == "Friday");
 
             if (Friday != null)
             {
-                planWeekViewModel.Friday = Friday.MealID.ToString();
+                planWeekViewModel.FridayMealID = Friday.MealID;
             }
 
 
@@ -78,7 +76,7 @@ namespace GroceryList.Controllers
 
             if (Saturday != null)
             {
-                planWeekViewModel.Saturday = Saturday.MealID.ToString();
+                planWeekViewModel.SaturdayMealID = Saturday.MealID;
             }
 
             planWeekViewModel.IsPlanned = context.PlannedMeals.Any();
@@ -91,78 +89,78 @@ namespace GroceryList.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (planWeekViewModel.Sunday != "-1")
+                if (planWeekViewModel.SundayMealID != -1)
                 {
                     PlannedMeal sunday = new PlannedMeal()
                     {
                         Day = "Sunday",
-                        MealID = Convert.ToInt32(planWeekViewModel.Sunday)
+                        MealID = planWeekViewModel.SundayMealID
                     };
 
                     context.PlannedMeals.Add(sunday);
                 }
 
-                if (planWeekViewModel.Monday != "-1")
+                if (planWeekViewModel.MondayMealID != -1)
                 {
                     PlannedMeal monday = new PlannedMeal()
                     {
                         Day = "Monday",
-                        MealID = Convert.ToInt32(planWeekViewModel.Monday)
+                        MealID = planWeekViewModel.MondayMealID
                     };
 
                     context.PlannedMeals.Add(monday);
                 }
 
-                if (planWeekViewModel.Tuesday != "-1")
+                if (planWeekViewModel.TuesdayMealID != -1)
                 {
                     PlannedMeal tuesday = new PlannedMeal()
                     {
                         Day = "Tuesday",
-                        MealID = Convert.ToInt32(planWeekViewModel.Tuesday)
+                        MealID = planWeekViewModel.TuesdayMealID
                     };
 
                     context.PlannedMeals.Add(tuesday);
                 }
 
-                if (planWeekViewModel.Wednesday != "-1")
+                if (planWeekViewModel.WednesdayMealID != -1)
                 {
                     PlannedMeal wednesday = new PlannedMeal()
                     {
                         Day = "Wednesday",
-                        MealID = Convert.ToInt32(planWeekViewModel.Wednesday)
+                        MealID = planWeekViewModel.WednesdayMealID
                     };
 
                     context.PlannedMeals.Add(wednesday);
                 }
 
-                if (planWeekViewModel.Thursday != "-1")
+                if (planWeekViewModel.ThursdayMealID != -1)
                 {
                     PlannedMeal thursday = new PlannedMeal()
                     {
                         Day = "Thursday",
-                        MealID = Convert.ToInt32(planWeekViewModel.Thursday)
+                        MealID = planWeekViewModel.ThursdayMealID
                     };
 
                     context.PlannedMeals.Add(thursday);
                 }
 
-                if (planWeekViewModel.Friday != "-1")
+                if (planWeekViewModel.FridayMealID != -1)
                 {
                     PlannedMeal friday = new PlannedMeal()
                     {
                         Day = "Friday",
-                        MealID = Convert.ToInt32(planWeekViewModel.Friday)
+                        MealID = planWeekViewModel.FridayMealID
                     };
 
                     context.PlannedMeals.Add(friday);
                 }
 
-                if (planWeekViewModel.Saturday != "-1")
+                if (planWeekViewModel.SaturdayMealID != -1)
                 {
                     PlannedMeal Saturday = new PlannedMeal()
                     {
                         Day = "Saturday",
-                        MealID = Convert.ToInt32(planWeekViewModel.Saturday)
+                        MealID = planWeekViewModel.SaturdayMealID
                     };
 
                     context.PlannedMeals.Add(Saturday);

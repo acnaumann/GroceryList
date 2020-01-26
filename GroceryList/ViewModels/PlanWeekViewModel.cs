@@ -9,18 +9,18 @@ namespace GroceryList.ViewModels
 {
     public class PlanWeekViewModel
     {
-        public string Sunday { get; set; }
-        public string Monday { get; set; }
-        public string Tuesday { get; set; }
-        public string Wednesday { get; set; }
-        public string Thursday { get; set; }
-        public string Friday { get; set; }
-        public string Saturday { get; set; }
+        public int SundayMealID { get; set; }
+        public int MondayMealID { get; set; }
+        public int TuesdayMealID { get; set; }
+        public int WednesdayMealID { get; set; }
+        public int ThursdayMealID { get; set; }
+        public int FridayMealID { get; set; }
+        public int SaturdayMealID { get; set; }
 
         public bool IsPlanned { get; set; }
 
         public int MealID { get; set; }
-        
+
         public List<SelectListItem> Meals { get; set; }
 
 
