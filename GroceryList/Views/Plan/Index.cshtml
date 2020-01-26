@@ -60,12 +60,34 @@
         <br />
         <br />
         <div>
-            <input type="submit" value="Set My Week!" />
-              
+            @if (!Model.IsPlanned)
+            {
+                <input type="submit" value="Set My Week!" />
+            }
+
         </div>    
     </form>
 </div>
 
+@if (Model.IsPlanned)
+{
+    <form asp-controller="Plan" asp-action="Clear" method="post" style="text-align: center;"> 
+        <button class="btn btn-danger" style="background-color: lightcoral">Clear This Week's Meals?</button>
+    </form>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@*
 <div style="text-align:left;">
     <a asp-controller="Plan" asp-action="Clear" >Start New Week!</a>
-</div>
+</div>*@

@@ -25,8 +25,8 @@ namespace GroceryList.Controllers
         public IActionResult Index()
         {
             PlanWeekViewModel planWeekViewModel = new PlanWeekViewModel(context.Meals.ToList());
-
-            PlannedMeal Sunday = context.PlannedMeals.First(x => x.Day == "Sunday");
+            
+            PlannedMeal Sunday = context.PlannedMeals.FirstOrDefault(x => x.Day == "Sunday");
 
             if (Sunday != null)
             {
@@ -34,7 +34,7 @@ namespace GroceryList.Controllers
             }
 
 
-            PlannedMeal Monday = context.PlannedMeals.First(x => x.Day == "Monday");
+            PlannedMeal Monday = context.PlannedMeals.FirstOrDefault(x => x.Day == "Monday");
 
             if (Monday != null)
             {
@@ -42,7 +42,7 @@ namespace GroceryList.Controllers
             }
 
 
-            PlannedMeal Tuesday = context.PlannedMeals.First(x => x.Day == "Tuesday");
+            PlannedMeal Tuesday = context.PlannedMeals.FirstOrDefault(x => x.Day == "Tuesday");
 
             if (Tuesday != null)
             {
@@ -50,7 +50,7 @@ namespace GroceryList.Controllers
             }
 
 
-            PlannedMeal Wednesday = context.PlannedMeals.First(x => x.Day == "Wednesday");
+            PlannedMeal Wednesday = context.PlannedMeals.FirstOrDefault(x => x.Day == "Wednesday");
 
             if (Wednesday != null)
             {
@@ -58,7 +58,7 @@ namespace GroceryList.Controllers
             }
 
 
-            PlannedMeal Thursday = context.PlannedMeals.First(x => x.Day == "Thursday");
+            PlannedMeal Thursday = context.PlannedMeals.FirstOrDefault(x => x.Day == "Thursday");
 
             if (Thursday != null)
             {
@@ -66,7 +66,7 @@ namespace GroceryList.Controllers
             }
 
 
-            PlannedMeal Friday = context.PlannedMeals.First(x => x.Day == "friday");
+            PlannedMeal Friday = context.PlannedMeals.FirstOrDefault(x => x.Day == "friday");
 
             if (Friday != null)
             {
@@ -74,14 +74,14 @@ namespace GroceryList.Controllers
             }
 
 
-            PlannedMeal Saturday = context.PlannedMeals.First(x => x.Day == "Saturday");
+            PlannedMeal Saturday = context.PlannedMeals.FirstOrDefault(x => x.Day == "Saturday");
 
             if (Saturday != null)
             {
                 planWeekViewModel.Saturday = Saturday.MealID.ToString();
             }
 
-            
+            planWeekViewModel.IsPlanned = context.PlannedMeals.Any();
 
             return View(planWeekViewModel);
         }
@@ -150,7 +150,7 @@ namespace GroceryList.Controllers
                 {
                     PlannedMeal friday = new PlannedMeal()
                     {
-                        Day = "friday",
+                        Day = "Friday",
                         MealID = Convert.ToInt32(planWeekViewModel.Friday)
                     };
 
@@ -171,7 +171,7 @@ namespace GroceryList.Controllers
                 context.SaveChanges();
                 return Redirect("/Plan/Index");
             }
-            
+
             // TODO -- How to clear the week's meals and stay on the index page
             PlanWeekViewModel pWVM = new PlanWeekViewModel(context.Meals.ToList());
             return View(pWVM);
@@ -183,17 +183,23 @@ namespace GroceryList.Controllers
         //    return View(clearPlannedMealViewModel);
         //}
 
-        //[HttpPost]
-        //public IActionResult Clear(int[] plannedMealIDs)
-        //{
-        //    foreach (int plannedMealID in plannedMealIDs)
-        //    {
-        //        PlannedMeal plannedMeal = context.PlannedMeals.Single(c => c.ID == plannedMealID);
-        //        context.PlannedMeals.Remove(plannedMeal);
-        //    }
+        [HttpPost]
+        public IActionResult Clear()
+        {
 
-        //    context.SaveChanges();
-        //    return Redirect("/Plan/Index");
+            List<PlannedMeal> plannedMeals = context.PlannedMeals.ToList();
+
+            foreach (PlannedMeal plannedMeal in plannedMeals)
+            {
+                context.PlannedMeals.Remove(plannedMeal);
+            }
+
+
+            context.SaveChanges();
+            return Redirect("/Plan/Index");
+
         }
+
     }
+
 }

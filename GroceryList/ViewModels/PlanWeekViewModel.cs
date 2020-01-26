@@ -17,7 +17,7 @@ namespace GroceryList.ViewModels
         public string Friday { get; set; }
         public string Saturday { get; set; }
 
-        
+        public bool IsPlanned { get; set; }
 
         public int MealID { get; set; }
         
@@ -26,6 +26,7 @@ namespace GroceryList.ViewModels
 
         public PlanWeekViewModel(IEnumerable<Meal> meals)
         {
+
             Meals = new List<SelectListItem>();
 
             Meals.Add(new SelectListItem
