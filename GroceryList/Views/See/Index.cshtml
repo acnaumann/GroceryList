@@ -1,20 +1,64 @@
-﻿@page
+﻿@model GroceryList.ViewModels.SeeIngredientsViewModel
 @{
-    <h1>Your Grocery List</h1>
+    <h1 style="text-align:center;">Your Grocery List</h1>
     //TODO -- add x glyphicon that will cross-out the item while you are shopping
     //TODO -- if there are no items in your grocery list, suggest planning your week with a link to that page
 }
 
-<div class="container-fluid">
+
+<form asp-controller="See" asp-action="Index" method="post">
+    <ul style="text-align: center; list-style-type:none">
+        @foreach (Ingredient ingredient in Model.Ingredients)
+        {
+            @if (ingredient.Name != "None" && ingredient.Name != "" && ingredient.Name != null)
+            {
+                 <li>
+                    @ingredient.Name
+                    <button type="button" class="btn btn-default btn-xs">
+                    <span class="glyphicon glyphicon-shopping-cart"></span></button>
+                </li>
+            }
+           
+        } 
+    </ul>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<div class="container-fluid">
     <form>
         <div class="row">
             <div class="col-sm-4">
+                
                 <label><strong>Category 1</strong></label>
                 <ul style="list-style-type:none  ">
                     <li>
                         item 1
-                        <span><input type="checkbox"></span>
-                        <span class="glyphicon glyphicon-shopping-cart"></span>
+                        <button type="button" class="btn btn-default btn-sm">
+                        <span class="glyphicon glyphicon-shopping-cart"></span></button>
                     </li>
                     <li>
                         item 2
@@ -129,3 +173,4 @@
         </div>
     </form>
 </div>
+    *@
