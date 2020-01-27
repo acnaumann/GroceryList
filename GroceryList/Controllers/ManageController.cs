@@ -24,7 +24,7 @@ namespace GroceryList.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            List<Meal> meals = context.Meals.Include(m => m.Ingredients).ToList();
+            IList<Meal> meals = context.Meals.Include(m => m.Ingredients).ToList();
             return View(meals);
         }
 
