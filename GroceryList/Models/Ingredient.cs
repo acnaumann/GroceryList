@@ -15,6 +15,8 @@ namespace GroceryList.Models
         public Meal Meal { get; set; }
         public int MealID { get; set; }
 
+        public bool IsInCart { get; set; } = true;
+
         public Ingredient()
         {
          
