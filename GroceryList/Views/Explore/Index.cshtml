@@ -1,163 +1,67 @@
-﻿@page
+﻿@model List<GroceryList.Models.Meal>
+
 @{
+    // TODO -- change the asp-action on each meal panel to the MealID
+    // TODO --
+
+    /*Notes:
+    Do I need to change the input/submit button to direct to -- think this is fixed
+    */
+
 }
 
 
 <div class="container-fluid text-center">
     <div>
-        <h1>Find A Meal</h1>
-        <h4>Find a meal and add it to your own list!</h4><br />
+        <h1>Find a Meal</h1>
+        <h3>See a meal you like, add it to Your Meals!</h3>
+        <br />     
     </div>
     <div class="row">
-        <form asp-controller="Explore" asp-action="Index">
+
+        @if (Model.Count == 0)
+        {
+            <div>
+                <p>No Meals Have Been Added! </p>
+            </div> 
+            <br />
+            @*<div>
+                <p>You can add a meal <a asp-controller="Manage" asp-action="AddAMeal">here!</a></p>
+            </div>*@
+    
+
+        }
+
+    @foreach (Meal meal in Model)
+    {
             <div class="col-sm-4">
-                <div class="panel panel-default text-center">
-                    <div class="panel-heading">
-                        <h3>Name of Meal</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="col-sm-6">
-                            <p>ingredient 1</p>
-                            <p>ingredient 2</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p>ingredient 3</p>
-                            <p>ingredient 4</p>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="panel-footer">
-                            <input type="submit" value="see full meal" />
-                            <input type="submit" value="AddToMyMeals" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
-
-        <div class="col-sm-4">
             <div class="panel panel-default text-center">
                 <div class="panel-heading">
-                    <h3>Name of Meal</h3>
+                    <h3>@meal.Name</h3>
                 </div>
                 <div class="panel-body">
-                    <div class="col-sm-6 text-center">
-                        <p>ingredient 1</p>
-                        <p>ingredient 2</p>
-                    </div>
-                    <div class="col-sm-6">
-                        <p>ingredient 3</p>
-                        <p>ingredient 4</p>
-                    </div>
+                    @foreach (Ingredient ingr in meal.Ingredients)
+                    {
+                        <div>
+                            @ingr.Name
+                        </div>
+                    }
+
+                    
                 </div>
-                <div>
-                    <div class="panel-footer">
-                        <input type="submit" value="see full meal" />
-                        <input type="submit" value="AddToMyMeals" />
-                    </div>
+                <div class="panel-footer">
+                    
+                    @meal.Note
+                    @*<a asp-controller="Manage" asp-action="ViewAMeal" asp-route-id="@meal.ID"><input type="submit" value="see full menu" /> </a>
+                       *** <a asp-controller="Manage" asp-action="ViewAMeal" asp-route-id="@meal.ID"><input type="submit" value="Add to my Meals!" /> </a>
+                    <input type="submit" value="RemoveMeal" />*@
+                    @*add submitted by once users has been implemented*@
+
                 </div>
+
             </div>
         </div>
 
-        <div class="col-sm-4">
-            <div class="panel panel-default text-center">
-                <div class="panel-heading">
-                    <h3>Name of Meal</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="col-sm-6 text-center">
-                        <p>ingredient 1</p>
-                        <p>ingredient 2</p>
-                    </div>
-                    <div class="col-sm-6">
-                        <p>ingredient 3</p>
-                        <p>ingredient 4</p>
-                    </div>
-                </div>
-                <div>
-                    <div class="panel-footer">
-                        <input type="submit" value="see full meal" />
-                        <input type="submit" value="AddToMyMeals" />
-                    </div>
-                </div>
-            </div>
-        </div>
+    }
     </div>
-
-    <br />
-
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="panel panel-default text-center">
-                <div class="panel-heading">
-                    <h3>Name of Meal</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="col-sm-6 text-center">
-                        <p>ingredient 1</p>
-                        <p>ingredient 2</p>
-                    </div>
-                    <div class="col-sm-6">
-                        <p>ingredient 3</p>
-                        <p>ingredient 4</p>
-                    </div>
-                </div>
-                <div>
-                    <div class="panel-footer">
-                        <input type="submit" value="see full meal" />
-                        <input type="submit" value="AddToMyMeals" />
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-sm-4">
-            <div class="panel panel-default text-center">
-                <div class="panel-heading">
-                    <h3>Name of Meal</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="col-sm-6 text-center">
-                        <p>ingredient 1</p>
-                        <p>ingredient 2</p>
-                    </div>
-                    <div class="col-sm-6">
-                        <p>ingredient 3</p>
-                        <p>ingredient 4</p>
-                    </div>
-                </div>
-                <div>
-                    <div class="panel-footer">
-                        <input type="submit" value="see full meal" />
-                        <input type="submit" value="AddToMyMeals" />
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-sm-4">
-            <div class="panel panel-default text-center">
-                <div class="panel-heading">
-                    <h3>Name of Meal</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="col-sm-6 text-center">
-                        <p>ingredient 1</p>
-                        <p>ingredient 2</p>
-                    </div>
-                    <div class="col-sm-6">
-                        <p>ingredient 3</p>
-                        <p>ingredient 4</p>
-                    </div>
-                </div>
-                <div>
-                    <div class="panel-footer">
-                        <input type="submit" value="see full meal" />
-                        <input type="submit" value="AddToMyMeals" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 </div>

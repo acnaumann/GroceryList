@@ -1,131 +1,34 @@
-﻿@page
+﻿@model GroceryList.ViewModels.SeeIngredientsViewModel
 @{
-    <h1>Your Grocery List</h1>
+    <h1 style="text-align:center;">Your Grocery List</h1>
     //TODO -- add x glyphicon that will cross-out the item while you are shopping
     //TODO -- if there are no items in your grocery list, suggest planning your week with a link to that page
 }
 
-<div class="container-fluid">
-    <form>
-        <div class="row">
-            <div class="col-sm-4">
-                <label><strong>Category 1</strong></label>
-                <ul style="list-style-type:none  ">
-                    <li>
-                        item 1
-                        <span><input type="checkbox"></span>
+
+<form asp-controller="See" asp-action="RemoveIngredient" method="post">
+    <table align="center" style="margin-bottom: 10px; ">
+        @foreach (Ingredient ingredient in Model.Ingredients)
+        {
+            @if (ingredient.Name != "None" && ingredient.Name != "" && ingredient.Name != null)
+            {
+                <tr>
+                    <td style="margin-right: 7px;">
+                        @ingredient.Name
+                    </td>
+                    <td>
+                        <input type="checkbox" name="@ingredient.Name" value="@ingredient.ID" />
                         <span class="glyphicon glyphicon-shopping-cart"></span>
-                    </li>
-                    <li>
-                        item 2
-                        <span><input type="checkbox"></span>
-                    </li>
-                    <li>
-                        item 3
-                        <span><input type="checkbox"></span>
-                    </li>
-                    <li>
-                        item 4
-                        <span><input type="checkbox"></span>
-                    </li>
-                    <li>
-                        item 5
-                        <span><input type="checkbox"></span>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-sm-4">
-                <label><strong>Category 2</strong></label>
-                <ul style="list-style-type:none  ">
-                     <li>
-                        item 1
-                         <span><input type="checkbox" ></span>
-                        <span class="glyphicon glyphicon-shopping-cart"></span>
-                    </li>
-                    <li>
-                        item 2
-                        <span><input type="checkbox"></span>
-                    </li>
-                    <li>
-                        item 3
-                        <span><input type="checkbox"></span>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-sm-4">
-                <label><strong>Category 3</strong></label>
-                <ul style="list-style-type:none  ">
-                     <li>
-                        item 1
-                         <span><input type="checkbox"></span>
-                        <span class="glyphicon glyphicon-shopping-cart"></span>
-                    </li>
-                    <li>
-                        item 2
-                        <span><input type="checkbox"></span>
-                    </li>
-                    <li>
-                        item 3
-                        <span><input type="checkbox"></span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-4">
-                <label><strong>Category 4</strong></label>
-                <ul style="list-style-type:none  ">
-                    <li>
-                        item 1
-                        <span><input type="checkbox" data-toggle="toggle"></span>
-                        <span class="glyphicon glyphicon-shopping-cart"></span>
-                    </li>
-                    <li>
-                        item 2
-                        <span><input type="checkbox" data-toggle="toggle"></span>
-                    </li>
-                    <li>
-                        item 3
-                        <span><input type="checkbox" data-toggle="toggle"></span>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-sm-4">
-                <label><strong>Category 5</strong></label>
-                <ul style="list-style-type:none  ">
-                     <li>
-                        item 1
-                         <span><input type="checkbox" data-toggle="toggle"></span>
-                        <span class="glyphicon glyphicon-shopping-cart"></span>
-                    </li>
-                    <li>
-                        item 2
-                        <span><input type="checkbox" data-toggle="toggle"></span>
-                    </li>
-                    <li>
-                        item 3
-                        <span><input type="checkbox" data-toggle="toggle"></span>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-sm-4">
-                <label><strong>Category 6</strong></label>
-                <ul style="list-style-type:none  ">
-                     <li>
-                        item 1
-                        <span class="glyphicon glyphicon-shopping-cart"></span>
-                    </li>
-                    <li>
-                        item 2
-                    </li>
-                    <li>
-                        item 3
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div>
-            <a asp-controller="See" asp-action="RemoveList"><input type="submit" value="Finished Shopping!" /> </a>
-        </div>
-    </form>
-</div>
+                                               
+                    </td>
+                </tr>
+
+            }
+           
+        } 
+    </table>
+    <div style="text-align: center;">
+        <input style=" text-align:center; " type="submit" value="Remove Ingredients" />
+    </div>
+    
+</form>
