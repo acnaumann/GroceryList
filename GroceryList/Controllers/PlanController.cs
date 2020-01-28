@@ -167,7 +167,7 @@ namespace GroceryList.Controllers
                 }
 
                 context.SaveChanges();
-                return Redirect("/Plan/Index");
+                return Redirect("/See/Index");
             }
 
             // TODO -- How to clear the week's meals and stay on the index page

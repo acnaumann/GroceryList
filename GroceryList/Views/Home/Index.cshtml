@@ -5,29 +5,47 @@
 <div style="text-align:right">
     <a asp-controller="User" asp-action="Index">Sign In!</a>
 </div>
+
+
 <div>
-    <div class="row">
-        <div class="col-sm-6">
+    <div style="margin-top: 100px; "class="row">
+        <div class="col-sm-3">
+            
+        </div>
+        <div style=" margin-bottom: 50px; display: block; text-align: center;" class="col-sm-3">
             <a asp-controller="Plan" asp-action="Index">
-                <img class="img-rounded main-selection" src="images/Calendar.png" alt="select-Plan-Your-Week-calendar-icon" /> 
-            </a> 
+                <span style="font-size: 100px; color: navy; " class="glyphicon glyphicon-calendar" /> 
+            </a>
+            <h3>Plan Your Weekly Meals</h3>
         </div>
-        <div class="col-sm-6">
+        <div style="margin-bottom: 50px; display: block; text-align: center;" class="col-sm-3">
             <a asp-controller="See" asp-action="Index">
-                <img class="img-rounded main-selection" src="images/GroceryList.png" alt="grocery-basket-select-See-Your_grocery-list" />
+                <span style="font-size: 100px; color: navy; " class="glyphicon glyphicon-list-alt" />
             </a>
-        </div>       
-    </div>
-    <div class="row">
-        <div class="col-sm-6">
-            <a asp-controller="Manage" asp-action="Index">
-                <img class="img-rounded main-selection" src="images/Meal.png" alt="recipe-icon-select-add-a-meal" />
-            </a>
+            <h3>See Your Grocery List</h3>
         </div>
-        <div class="col-sm-6">
-            <a asp-controller="Explore" asp-action="Index">
-                <img class="img-rounded main-selection" src="images/Explore.png" alt="search-icon-select-explore-meals" />
+        <div class="col-sm-3">
+            
+        </div>
+    </div>
+    <div style="margin-bottom: 100px; " class="row">
+        <div class="col-sm-3">
+            
+        </div>
+        <div style="margin-bottom: 50px; display: block; text-align: center;" class="col-sm-3">
+            <a asp-controller="Manage" asp-action="Index">
+                <span style="font-size: 100px; color: navy; " class="glyphicon glyphicon-cutlery " />
             </a>
+            <h3>Manage Your Meals</h3>
+        </div>
+        <div style="margin-bottom: 50px; display: block; text-align: center;" class="col-sm-3">
+            <a asp-controller="Explore" asp-action="Index">
+                <span style="font-size: 100px; color: navy; " class="glyphicon glyphicon-globe" />
+            </a>
+            <h3>Find A Meal</h3>
+        </div>
+        <div class="col-sm-3">
+            
         </div>
     </div>
 </div>
