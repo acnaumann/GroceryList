@@ -40,10 +40,30 @@ namespace GroceryList.Controllers
             return View(seeIViewModel);
         }
 
-        public IActionResult RemoveIngredient()
+
+        [HttpPost]
+        public IActionResult RemoveIngredient(RemovePlannedIngredientViewModel rPIngredientViewModel)
         {
-            //List<int> ingredients
-            //foreach (int id in ingredients)
+
+            if (ModelState.IsValid)
+            {
+
+                Ingredient ingredient = context.Ingredients.Single(i => i.ID == rPIngredientViewModel.IngredientID);
+
+                ingredient.IsInCart = false;
+                context.SaveChanges();
+
+                //viewmodel contains the list, should the list<int> = rPIngredientViewModel??
+                //List<int> IngredientIDs = new List<int>();
+                //foreach (int id in IngredientIDs)
+                //{
+                //    Ingredient ingredient = context.Ingredients.Single(i => i.ID == id);
+
+                //    ingredient.IsInCart = true;
+                //}
+            }
+
+
             //ingredient.condition = "true"
 
             //TODO -- remove ingredients from DB

@@ -175,12 +175,6 @@ namespace GroceryList.Controllers
             return View(pWVM);
         }
 
-        //public IActionResult Clear()
-        //{
-        //    ClearPlannedMealViewModel clearPlannedMealViewModel = new ClearPlannedMealViewModel();
-        //    return View(clearPlannedMealViewModel);
-        //}
-
         [HttpPost]
         public IActionResult Clear()
         {

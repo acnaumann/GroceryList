@@ -8,6 +8,8 @@ namespace GroceryList.ViewModels
     {
         public List<Ingredient> Ingredients { get; set; }
 
+        public int IngredientID { get; set; }
+
         public SeeIngredientsViewModel()
         {
         }
