@@ -36,6 +36,7 @@ namespace GroceryList.Controllers
                 .Where(i => i.IsInCart)
                 .OrderBy(i => i.Name).ToList();
 
+            seeIViewModel.IsPlanned = context.PlannedMeals.Any();
 
             return View(seeIViewModel);
         }

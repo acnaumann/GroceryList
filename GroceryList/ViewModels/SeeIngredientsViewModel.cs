@@ -12,7 +12,7 @@ namespace GroceryList.ViewModels
 
         public int IngredientID { get; set; }
 
-        //public int IngredientID { get; set; }
+        public bool IsPlanned { get; set; }
 
         public SeeIngredientsViewModel()
         {
