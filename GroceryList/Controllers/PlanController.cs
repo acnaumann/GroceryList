@@ -77,6 +77,7 @@ namespace GroceryList.Controllers
             if (Saturday != null)
             {
                 planWeekViewModel.SaturdayMealID = Saturday.MealID;
+                
             }
 
             planWeekViewModel.IsPlanned = context.PlannedMeals.Any();
@@ -89,15 +90,23 @@ namespace GroceryList.Controllers
         {
             if (ModelState.IsValid)
             {
+                List<int> mealIDs = new List<int>();
+
                 if (planWeekViewModel.SundayMealID != -1)
                 {
+
                     PlannedMeal sunday = new PlannedMeal()
                     {
                         Day = "Sunday",
-                        MealID = planWeekViewModel.SundayMealID
+                        MealID = planWeekViewModel.SundayMealID,
+                        
+                        
                     };
 
-                    context.PlannedMeals.Add(sunday);
+                    mealIDs.Add(planWeekViewModel.SundayMealID);
+
+                    context.PlannedMeals.Add(sunday);            
+                    
                 }
 
                 if (planWeekViewModel.MondayMealID != -1)
@@ -107,6 +116,8 @@ namespace GroceryList.Controllers
                         Day = "Monday",
                         MealID = planWeekViewModel.MondayMealID
                     };
+
+                    mealIDs.Add(planWeekViewModel.MondayMealID);
 
                     context.PlannedMeals.Add(monday);
                 }
@@ -119,6 +130,8 @@ namespace GroceryList.Controllers
                         MealID = planWeekViewModel.TuesdayMealID
                     };
 
+                    mealIDs.Add(planWeekViewModel.TuesdayMealID);
+
                     context.PlannedMeals.Add(tuesday);
                 }
 
@@ -129,6 +142,8 @@ namespace GroceryList.Controllers
                         Day = "Wednesday",
                         MealID = planWeekViewModel.WednesdayMealID
                     };
+
+                    mealIDs.Add(planWeekViewModel.WednesdayMealID);
 
                     context.PlannedMeals.Add(wednesday);
                 }
@@ -141,6 +156,8 @@ namespace GroceryList.Controllers
                         MealID = planWeekViewModel.ThursdayMealID
                     };
 
+                    mealIDs.Add(planWeekViewModel.ThursdayMealID);
+
                     context.PlannedMeals.Add(thursday);
                 }
 
@@ -151,6 +168,8 @@ namespace GroceryList.Controllers
                         Day = "Friday",
                         MealID = planWeekViewModel.FridayMealID
                     };
+
+                    mealIDs.Add(planWeekViewModel.FridayMealID);
 
                     context.PlannedMeals.Add(friday);
                 }
@@ -163,14 +182,26 @@ namespace GroceryList.Controllers
                         MealID = planWeekViewModel.SaturdayMealID
                     };
 
+                    mealIDs.Add(planWeekViewModel.SaturdayMealID);
+
                     context.PlannedMeals.Add(Saturday);
                 }
 
                 context.SaveChanges();
+
+
+                List<Ingredient> ingredients = context.Ingredients.Where(x => mealIDs.Contains(x.MealID)).ToList();
+
+
+                foreach (Ingredient ingredient in ingredients)
+                {
+                    ingredient.IsInCart = true;
+                }
+                context.SaveChanges();
+
                 return Redirect("/See/Index");
             }
 
-            // TODO -- How to clear the week's meals and stay on the index page
             PlanWeekViewModel pWVM = new PlanWeekViewModel(context.Meals.ToList());
             return View(pWVM);
         }
@@ -178,7 +209,6 @@ namespace GroceryList.Controllers
         [HttpPost]
         public IActionResult Clear()
         {
-
             List<PlannedMeal> plannedMeals = context.PlannedMeals.ToList();
 
             foreach (PlannedMeal plannedMeal in plannedMeals)
@@ -186,10 +216,8 @@ namespace GroceryList.Controllers
                 context.PlannedMeals.Remove(plannedMeal);
             }
 
-
             context.SaveChanges();
             return Redirect("/Plan/Index");
-
         }
 
     }

@@ -1,7 +1,6 @@
 ﻿@model GroceryList.ViewModels.PlanWeekViewModel
 @{
-    //TODO -- if your week is set, display the meals in the dropdown
-    //do I want just the meals displayed per day or do I want the meals displayed in the dropdown?
+
 }
 
 
@@ -12,6 +11,7 @@
             <label><strong>Sunday</strong></label>
             <br />
             <select asp-for="SundayMealID" asp-items="Model.Meals" name="SundayMealID"></select>
+            @*<input type="hidden" value=""*@
             <br />
         </div>
         <br />

@@ -8,10 +8,17 @@ namespace GroceryList.ViewModels
     {
         public List<Ingredient> Ingredients { get; set; }
 
+        public List<int> IngreditentIDs { get; set; }
+
         public int IngredientID { get; set; }
+
+        //public int IngredientID { get; set; }
 
         public SeeIngredientsViewModel()
         {
         }
     }
 }
+
+
+// TODO -- remove the unused/unecessary properties

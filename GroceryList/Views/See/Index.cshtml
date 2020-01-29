@@ -7,29 +7,28 @@
 
 
 <form asp-controller="See" asp-action="RemoveIngredient" method="post">
-    <ul align="center" style="margin-bottom: 10px; ">
+    <table align="center" style="margin-bottom: 10px; ">
         @foreach (Ingredient ingredient in Model.Ingredients)
         {
             @if (ingredient.Name != "None" && ingredient.Name != "" && ingredient.Name != null)
             {
-                <li>
-                    
+                <tr>
+                    <td style="margin-right: 7px;">
                         @ingredient.Name
-                        <input type="checkbox" name="ingredientID" value="@ingredient.ID" id="@ingredient.ID" />
+
+                    </td>
+                    <td style="padding-left: 7px;">
+                        
+                        <input type="checkbox" name="IngredientIDs" value="@ingredient.ID" />
                         <span class="glyphicon glyphicon-shopping-cart"></span>
-                        @*// TODO -- <input type="hidden" value="@Model.IngredientID" name="@Model.IngredientID" />*@
-                   
-                        
-                        
-                        
                                                
-                    
-                </li>
+                    </td>
+                </tr>
 
             }
            
         } 
-    </ul>
+    </table>
     <div style="text-align: center;">
         <input style=" text-align:center; " type="submit" value="Remove Ingredients" />
     </div>

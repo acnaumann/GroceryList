@@ -23,6 +23,8 @@ namespace GroceryList.ViewModels
 
         public List<SelectListItem> Meals { get; set; }
 
+        public List<Ingredient> Ingredients { get; set; }
+
 
         public PlanWeekViewModel(IEnumerable<Meal> meals)
         {

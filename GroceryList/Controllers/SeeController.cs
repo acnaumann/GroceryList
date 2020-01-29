@@ -33,7 +33,7 @@ namespace GroceryList.Controllers
             //if ingredient.IsInCart
             seeIViewModel.Ingredients = context.Ingredients
                 .Where(x => PlannedMealIDs.Contains(x.MealID))//after: (x.MealID) --> && !x.IsInCart
-                //.Where(i => !i.IsInCart)
+                .Where(i => i.IsInCart)
                 .OrderBy(i => i.Name).ToList();
 
 
@@ -47,26 +47,18 @@ namespace GroceryList.Controllers
 
             if (ModelState.IsValid)
             {
+                //context.SaveChanges();
 
-                Ingredient ingredient = context.Ingredients.Single(i => i.ID == rPIngredientViewModel.IngredientID);
+                foreach (int id in rPIngredientViewModel.IngredientIDs)
+                {
+                    Ingredient ingredient = context.Ingredients.Single(i => i.ID == id);
 
-                ingredient.IsInCart = false;
+                    ingredient.IsInCart = false;
+                    
+                }
                 context.SaveChanges();
-
-                //viewmodel contains the list, should the list<int> = rPIngredientViewModel??
-                //List<int> IngredientIDs = new List<int>();
-                //foreach (int id in IngredientIDs)
-                //{
-                //    Ingredient ingredient = context.Ingredients.Single(i => i.ID == id);
-
-                //    ingredient.IsInCart = true;
-                //}
             }
 
-
-            //ingredient.condition = "true"
-
-            //TODO -- remove ingredients from DB
             return Redirect("Index");
         }
     }

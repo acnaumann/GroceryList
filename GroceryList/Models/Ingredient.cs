@@ -15,16 +15,12 @@ namespace GroceryList.Models
         public Meal Meal { get; set; }
         public int MealID { get; set; }
 
-        public bool IsInCart { get; set; } = true;
+        public bool IsInCart { get; set; }
 
         public Ingredient()
         {
          
         }
 
-        //public Ingredient()
-        //{
-        //    //Type Ingredient already defines a member called ".ctor" with the same parameter types
-        //}
     }
 }
