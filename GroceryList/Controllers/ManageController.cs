@@ -51,6 +51,8 @@ namespace GroceryList.Controllers
                 {
                     Ingredient ingredient = new Ingredient()
                     {
+                        //make it so that each ingredient is added as upper case(all)
+                        //and check if already in db
                         Name = ingr
                     };
 
@@ -67,6 +69,25 @@ namespace GroceryList.Controllers
 
             return View(addMealViewModel);
         }
+
+
+        public  IActionResult AddCategory()
+        {
+            
+            return View();
+        }
+
+
+        [HttpPost]
+        public IActionResult AddCategory(AddCategoryViewModel acvm)
+        {
+            //TODO -- add category 
+            return View();
+        }
+
+
+
+
 
         //public IActionResult ViewAMeal(int id)
         //{

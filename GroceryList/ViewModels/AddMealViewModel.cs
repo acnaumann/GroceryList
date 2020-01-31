@@ -15,8 +15,25 @@ namespace GroceryList.ViewModels
 
         [Required]
         public string Note { get; set; }
+
+        //public List<SelectListItem> Categories { get; set; }
+
+        //public AddMealViewModel(IEnumerable<Category> categories)
+        //{
+        //    Categories = new List<SelectListItem>();
+
+        //    foreach (Category category in categories)
+        //    {
+        //        Categories.Add(new SelectListItem
+        //        {
+        //            Value = category.ID.ToString(),
+        //            Text = category.Name
+        //        });
+        //    }
+        //}
   
     }
+
 }
 
 
