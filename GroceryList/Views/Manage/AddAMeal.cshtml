@@ -3,7 +3,7 @@
     ViewData["Title"] = "Title";
 }
 <div>
-    <a asp-controller="Manage" asp-action="AddCategory">Categories</a>
+    <a asp-controller="Category" asp-action="Index">Categories</a>
 </div>
 
 
@@ -29,6 +29,9 @@
         </div>
         <div>
             <input type="text" name="Ingredients" />
+            <select>
+
+            </select>
         </div>
         <div id="ingredients"></div>
         <br />
@@ -59,10 +62,12 @@
 <script type="text/javascript">
 		
 	$(document).ready(function() {
-		var $ingredients = $('#ingredients');
+        var $ingredients = $('#ingredients');
+ 
 		$('#btnAddIngredient').click(function(e) {
 			e.preventDefault();
-			$('<input type="text" name="Ingredients" /><br/>').appendTo($ingredients);
+            $('<input type="text" name="Ingredients" />').appendTo($ingredients);
+            $('<select></select><br/>').appendTo($ingredients);
 		});
 	});
 	

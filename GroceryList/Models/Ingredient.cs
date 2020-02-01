@@ -8,9 +8,8 @@ namespace GroceryList.Models
         public int ID { get; set; }
         public string Name { get; set; }
 
-        //TODO -- add category in second push
-        //public Category Category { get; set; }
-        //public int CategoryID { get; set; }
+        public Category Category { get; set; }
+        public int CategoryID { get; set; }
 
         public Meal Meal { get; set; }
         public int MealID { get; set; }

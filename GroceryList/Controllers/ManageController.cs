@@ -30,7 +30,7 @@ namespace GroceryList.Controllers
 
         public IActionResult AddAMeal()
         {
-            AddMealViewModel addMealViewModel = new AddMealViewModel();
+            AddMealViewModel addMealViewModel = new AddMealViewModel(context.Categories.ToList());
 
             return View(addMealViewModel);
         }
@@ -65,25 +65,13 @@ namespace GroceryList.Controllers
 
                 return Redirect("/Manage/Index");
             }
-            //TODO -- List<string> result = names.Split(',').ToList();
+            
 
             return View(addMealViewModel);
         }
 
 
-        public  IActionResult AddCategory()
-        {
-            
-            return View();
-        }
-
-
-        [HttpPost]
-        public IActionResult AddCategory(AddCategoryViewModel acvm)
-        {
-            //TODO -- add category 
-            return View();
-        }
+  
 
 
 

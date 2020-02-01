@@ -1,4 +1,4 @@
-﻿@page
+﻿@model GroceryList.ViewModels.AddCategoryViewModel
 @{
 
 }
@@ -9,12 +9,9 @@
     <h4>Add a category or section of your grocery store to make your shopping easier!</h4>
     <br />
 
-    <form asp-controller="Manage" asp-action="AddCategory" method="post">
+    <form asp-controller="Category" asp-action="Index" method="post">
         <label>Category:</label>
-        <input type="text" name="Category"/>
+        <input type="text" name="Name"/>
         <input type="submit" value="Add" />
     </form>
 </div>
-
-
-

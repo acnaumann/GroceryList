@@ -16,6 +16,7 @@
     <Folder Include="Views\User\" />
     <Folder Include="Views\Explore\" />
     <Folder Include="ViewModels\" />
+    <Folder Include="Views\Category\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Data\Meal.cs" />
