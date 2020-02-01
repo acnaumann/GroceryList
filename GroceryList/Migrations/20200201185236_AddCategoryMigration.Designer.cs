@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GroceryList.Migrations
 {
     [DbContext(typeof(ListDbContext))]
-    [Migration("20200128035247_BoolMigration")]
-    partial class BoolMigration
+    [Migration("20200201185236_AddCategoryMigration")]
+    partial class AddCategoryMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -17,10 +17,27 @@ namespace GroceryList.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.0");
 
+            modelBuilder.Entity("GroceryList.Models.Category", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Categories");
+                });
+
             modelBuilder.Entity("GroceryList.Models.Ingredient", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("CategoryID")
                         .HasColumnType("INTEGER");
 
                     b.Property<bool>("IsInCart")
@@ -33,6 +50,8 @@ namespace GroceryList.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("CategoryID");
 
                     b.HasIndex("MealID");
 
@@ -77,6 +96,12 @@ namespace GroceryList.Migrations
 
             modelBuilder.Entity("GroceryList.Models.Ingredient", b =>
                 {
+                    b.HasOne("GroceryList.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("GroceryList.Models.Meal", "Meal")
                         .WithMany("Ingredients")
                         .HasForeignKey("MealID")

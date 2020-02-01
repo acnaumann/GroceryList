@@ -15,10 +15,27 @@ namespace GroceryList.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.0");
 
+            modelBuilder.Entity("GroceryList.Models.Category", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Categories");
+                });
+
             modelBuilder.Entity("GroceryList.Models.Ingredient", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("CategoryID")
                         .HasColumnType("INTEGER");
 
                     b.Property<bool>("IsInCart")
@@ -31,6 +48,8 @@ namespace GroceryList.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("CategoryID");
 
                     b.HasIndex("MealID");
 
@@ -75,6 +94,12 @@ namespace GroceryList.Migrations
 
             modelBuilder.Entity("GroceryList.Models.Ingredient", b =>
                 {
+                    b.HasOne("GroceryList.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("GroceryList.Models.Meal", "Meal")
                         .WithMany("Ingredients")
                         .HasForeignKey("MealID")

@@ -27,6 +27,7 @@ namespace GroceryList.Controllers
             return View(addCategoryViewModel);
         }
 
+        [HttpPost]
         public IActionResult Index(AddCategoryViewModel acvm)
         {
             if (ModelState.IsValid)

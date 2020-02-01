@@ -2,10 +2,23 @@
 
 namespace GroceryList.Migrations
 {
-    public partial class FirstMigration : Migration
+    public partial class AddCategoryMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Categories",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Categories", x => x.ID);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Meals",
                 columns: table => new
@@ -27,11 +40,19 @@ namespace GroceryList.Migrations
                     ID = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(nullable: true),
-                    MealID = table.Column<int>(nullable: false)
+                    CategoryID = table.Column<int>(nullable: false),
+                    MealID = table.Column<int>(nullable: false),
+                    IsInCart = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Ingredients", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Ingredients_Categories_CategoryID",
+                        column: x => x.CategoryID,
+                        principalTable: "Categories",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Ingredients_Meals_MealID",
                         column: x => x.MealID,
@@ -61,6 +82,11 @@ namespace GroceryList.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Ingredients_CategoryID",
+                table: "Ingredients",
+                column: "CategoryID");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Ingredients_MealID",
                 table: "Ingredients",
                 column: "MealID");
@@ -78,6 +104,9 @@ namespace GroceryList.Migrations
 
             migrationBuilder.DropTable(
                 name: "PlannedMeals");
+
+            migrationBuilder.DropTable(
+                name: "Categories");
 
             migrationBuilder.DropTable(
                 name: "Meals");
