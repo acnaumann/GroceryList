@@ -29,9 +29,7 @@
         </div>
         <div>
             <input type="text" name="Ingredients" />
-            <select>
-
-            </select>
+            <select asp-for="CategoryID" asp-items="Model.Categories" id="categories" name="CategoryIDs"></select>
         </div>
         <div id="ingredients"></div>
         <br />
@@ -63,11 +61,15 @@
 		
 	$(document).ready(function() {
         var $ingredients = $('#ingredients');
- 
 		$('#btnAddIngredient').click(function(e) {
-			e.preventDefault();
+            e.preventDefault();
+            var options = "";
+            $("#categories option").each(function()
+            {
+                options += '<option value="' + $(this).val() + '">' + $(this).text() + "</option>"
+            });
             $('<input type="text" name="Ingredients" />').appendTo($ingredients);
-            $('<select></select><br/>').appendTo($ingredients);
+            $('<select asp-for="CategoryID" name="CategoryIDs">' + options + '</select><br/>').appendTo($ingredients);
 		});
 	});
 	

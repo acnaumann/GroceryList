@@ -47,17 +47,24 @@ namespace GroceryList.Controllers
                 };
 
                 meal.Ingredients = new List<Ingredient>();
-                foreach (var ingr in addMealViewModel.Ingredients)
+                for (int i = 0; i < addMealViewModel.Ingredients.Count(); i++)
                 {
-                    Ingredient ingredient = new Ingredient()
+                    if (!string.IsNullOrEmpty(addMealViewModel.Ingredients[i]))
                     {
-                        //make it so that each ingredient is added as upper case(all)
-                        //and check if already in db
-                        Name = ingr
-                    };
+                        Ingredient ingredient = new Ingredient()
+                        {
+                            //make it so that each ingredient is added as upper case(all)
+                            //and check if already in db
+                            Name = addMealViewModel.Ingredients[i],
+                            CategoryID = addMealViewModel.CategoryIDs[i]
+                        };
+
+                        meal.Ingredients.Add(ingredient);
+                    }
+                    
 
                     
-                    meal.Ingredients.Add(ingredient);
+                    
                 }
 
                 context.Meals.Add(meal);
