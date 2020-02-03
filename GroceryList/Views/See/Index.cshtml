@@ -2,7 +2,7 @@
 @{
     <h1 style="text-align:center;">Your Grocery List</h1>
     //TODO -- add x glyphicon that will cross-out the item while you are shopping
-    //TODO -- if there are no items in your grocery list, suggest planning your week with a link to that page
+    
 }
 
 @if (!Model.IsPlanned)
@@ -17,6 +17,84 @@
 }
 
 else
+{
+    <form asp-controller="See" asp-action="RemoveIngredient" method="post">
+        <div class="row display-flex" style="margin-top: 15px; ">
+        
+            @foreach (var category in Model.Categories)
+            {                                                           // border: 1px solid lightgray 
+                        <table class="col-sm-4" align="center" style="margin-bottom: 10px; ">
+                            <tr>
+                                <th colspan="2" style="text-align:center; ">@category.Name</th>
+                            </tr>
+                            @foreach (Ingredient ingredient in Model.Ingredients)
+                            {
+                                if (ingredient.CategoryID == category.ID)
+                                {
+                                    <tr>
+                                        <td style="margin-right: 5px;">
+                                            @ingredient.Name
+                                        </td>
+                                        <td style="padding-left: 1px; ">
+                                            <input type="checkbox" name="IngredientIDs" value="@ingredient.ID"/>
+                                            <span class="glyphicon glyphicon-shopping-cart" ></span>
+                                        </td>
+                                    </tr>
+                                }
+                                // TODO -- if there are no ingredients that contain the category ID then display message
+                                @*else if (category.)
+                                {
+                                    <tr>
+                                        <td>
+                                            You have no ingregients in this section
+                                        </td>
+                                    </tr>
+                                }*@
+                            }
+                        </table>                  
+            }
+            </div>
+        <div class="row" style="line-height: 10px; "></div>
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4" style="text-align: center; padding-top: 15px; ">
+            <input style=" text-align:center; " type="submit" value="Remove Ingredients" />
+        </div>
+        <div class="col-sm-4"></div>
+    
+    </form>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*else
 {
     <form asp-controller="See" asp-action="RemoveIngredient" method="post">
         <table align="center" style="margin-bottom: 10px; ">
@@ -37,8 +115,7 @@ else
                         </td>
                     </tr>
 
-                }
-           
+                }           
             } 
         </table>
         <div style="text-align: center;">
@@ -47,5 +124,4 @@ else
     
     </form>
 }
-
-
+*@

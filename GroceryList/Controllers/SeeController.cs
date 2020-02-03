@@ -29,11 +29,14 @@ namespace GroceryList.Controllers
 
             List<int> PlannedMealIDs = context.PlannedMeals.Select(m => m.MealID).ToList();
 
+            seeIViewModel.Categories = context.Categories.ToList();
+
             //foreach Ingredient ingredient in Ingredients
             //if ingredient.IsInCart
             seeIViewModel.Ingredients = context.Ingredients
-                .Where(x => PlannedMealIDs.Contains(x.MealID))//after: (x.MealID) --> && !x.IsInCart
+                .Where(x => PlannedMealIDs.Contains(x.MealID))//another way --> after (x.MealID) --> && !x.IsInCart
                 .Where(i => i.IsInCart)
+                .Include(c => c.Category)
                 .OrderBy(i => i.Name).ToList();
 
             seeIViewModel.IsPlanned = context.PlannedMeals.Any();

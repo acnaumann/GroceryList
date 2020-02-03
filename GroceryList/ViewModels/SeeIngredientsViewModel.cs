@@ -10,6 +10,8 @@ namespace GroceryList.ViewModels
 
         public List<int> IngreditentIDs { get; set; }
 
+        public List<Category> Categories { get; set; }
+
         public int IngredientID { get; set; }
 
         public bool IsPlanned { get; set; }

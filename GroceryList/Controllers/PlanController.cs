@@ -213,6 +213,7 @@ namespace GroceryList.Controllers
 
             foreach (PlannedMeal plannedMeal in plannedMeals)
             {
+                //TODO -- if any ingredients left true, change to false
                 context.PlannedMeals.Remove(plannedMeal);
             }
 

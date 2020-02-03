@@ -49,7 +49,7 @@ namespace GroceryList.Controllers
                 meal.Ingredients = new List<Ingredient>();
                 for (int i = 0; i < addMealViewModel.Ingredients.Count(); i++)
                 {
-                    if (!string.IsNullOrEmpty(addMealViewModel.Ingredients[i]))
+                    if (!string.IsNullOrEmpty(addMealViewModel.Ingredients[i]) && addMealViewModel.Ingredients[i] != "")
                     {
                         Ingredient ingredient = new Ingredient()
                         {
@@ -72,9 +72,9 @@ namespace GroceryList.Controllers
 
                 return Redirect("/Manage/Index");
             }
-            
 
-            return View(addMealViewModel);
+            AddMealViewModel newAddMealViewModel = new AddMealViewModel(context.Categories.ToList());
+            return View(newAddMealViewModel);
         }
 
 

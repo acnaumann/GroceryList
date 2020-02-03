@@ -10035,4 +10035,22 @@ a.text-dark:hover, a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
+
+.row.display-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.row.display-flex > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
+}
+
+.panel {
+    height: 100%;
+}
+
+/*.table{
+    height: 100%;
+}*/
+
 /*# sourceMappingURL=bootstrap.css.map */
