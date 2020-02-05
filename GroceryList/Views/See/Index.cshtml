@@ -18,8 +18,9 @@
 
 else
 {
+    <div class="container display-flex">
     <form asp-controller="See" asp-action="RemoveIngredient" method="post">
-        <div class="row display-flex" style="margin-top: 15px; ">
+        <div class="row display-flex" style="margin-top: 15px;  padding-left: 10px; ">
         
             @foreach (var category in Model.Categories)
             {                                                           // border: 1px solid lightgray 
@@ -35,7 +36,7 @@ else
                                         <td style="margin-right: 5px;">
                                             @ingredient.Name
                                         </td>
-                                        <td style="padding-left: 1px; ">
+                                        <td>
                                             <input type="checkbox" name="IngredientIDs" value="@ingredient.ID"/>
                                             <span class="glyphicon glyphicon-shopping-cart" ></span>
                                         </td>
@@ -62,6 +63,7 @@ else
         <div class="col-sm-4"></div>
     
     </form>
+    </div>
 }
 
 
