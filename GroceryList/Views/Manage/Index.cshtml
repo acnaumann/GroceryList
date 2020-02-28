@@ -46,21 +46,14 @@
                     <div class="panel-heading text-center ">
                         <h3>@meal.Name</h3>
                     </div>
-                    <div class="panel-body">
-                        @foreach (Ingredient ingr in meal.Ingredients)
-                        {
-                            <div>
-                                @ingr.Name
-                            </div>
-                        }
-
-                    
+                    <div class="panel-body">                       
+                        @meal.Note                   
                     </div>
                     <div class="panel-footer">
                     
-                        @meal.Note
-                        @*<a asp-controller="Manage" asp-action="ViewAMeal" asp-route-id="@meal.ID"><input type="submit" value="see full menu" /> </a>
-                        <input type="submit" value="RemoveMeal" />*@
+                        
+                        <a asp-controller="Manage" asp-action="ViewAMeal" asp-route-id="@meal.ID"><input type="submit" value="see meal" /> </a>
+                        <input type="hidden" value="@meal.ID" />
                     </div>
 
                 </div>
@@ -172,6 +165,15 @@
                 
             </div>
         </div>*@
+
+
+
+            @*@foreach (Ingredient ingr in meal.Ingredients)
+                        {
+                            <div>
+                                @ingr.Name
+                            </div>
+                        }*@
     </div>
 
 </div>

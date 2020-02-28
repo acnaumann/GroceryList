@@ -78,24 +78,22 @@ namespace GroceryList.Controllers
         }
 
 
-  
 
 
+        public IActionResult ViewAMeal(ViewMealViewModel viewMealViewModel)
+        {
+            ViewMealViewModel vMVM = new ViewMealViewModel();
 
+            vMVM.Meal = context.Meals.Include(m => m.Ingredients).Single(mi => mi.ID == viewMealViewModel.ID);
 
+            //ViewMealViewModel viewMealViewModel = new ViewMealViewModel
+            //{
+            //    Meal = meal,
+            //    Ingredients = ingredients
+            //};
 
-        //public IActionResult ViewAMeal(int id)
-        //{
-        //    Meal meal = context.Meals.Include(m => m.Ingredients).Single(mi => mi.ID == id);
-
-        //    //ViewMealViewModel viewMealViewModel = new ViewMealViewModel
-        //    //{
-        //    //    Meal = meal,
-        //    //    Ingredients = ingredients
-        //    //};
-
-        //    return View(meal);
-        //}
+            return View(vMVM);
+        }
 
 
         // TODO -- later -- add an edit option for each meal

@@ -1,10 +1,20 @@
-﻿
-@{
-    ViewBag["Title"] = Model.Meal.Name;
-}
-
-
-@*<h3>@meal.Name</h3>*@
-
+﻿@model GroceryList.ViewModels.ViewMealViewModel
 
 <a asp-controller="Manage" asp-action="Index">back</a>
+
+<div class="text-center">
+    <h3>@Model.Meal.Name</h3>
+    @foreach (Ingredient ingredient in Model.Meal.Ingredients)
+    {
+        <h5>@ingredient.Name</h5>
+    }
+    <br />
+    <p>@Model.Meal.Note</p>
+
+    <br />
+
+</div>
+
+
+
+
